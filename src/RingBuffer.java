@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 
 public class RingBuffer {
 	
@@ -27,11 +28,19 @@ public class RingBuffer {
 	}
 	
 	public double dequeue() {
-		return 0;
+		if (isEmpty()) {
+			throw new NoSuchElementException();
+		}
+		double toReturn = buffer[first];
+		
+		return toReturn;
 	}
 	
 	public double peek() {
-		return 0;
+		if (isEmpty()) {
+			throw new NoSuchElementException();
+		}
+		return buffer[first];
 	}
 	
 	public String toString() {
