@@ -8,18 +8,30 @@ public class RingBuffer {
 	public RingBuffer(int capacity) {
 		buffer = new double[capacity];
 		first = 0;
-		last = 0;
+		last = -1;
 	}
 	
 	public int size() {
-		return last-first;
+		int toReturn = last-first;
+		if (toReturn == 0) {
+			toReturn = buffer.length;
+		} else if(toReturn < 0) {
+			toReturn = buffer.length + toReturn;
+		}
+		return toReturn;
 	}
 	
 	public boolean isEmpty() {
-		return (size() > 0);
+		if (last == -1) {
+			return true;
+		}
+		return (!(size() > 0));
 	}
 	
 	public boolean isFull() {
+		if (last == -1) {
+			return false;
+		}
 		return (size() >= buffer.length);
 	}
 	
@@ -32,7 +44,10 @@ public class RingBuffer {
 			throw new NoSuchElementException();
 		}
 		double toReturn = buffer[first];
-		
+		first++;
+		if (first > 0){
+			first = 0;
+		}
 		return toReturn;
 	}
 	
