@@ -1,25 +1,30 @@
+
 public class GuitarString {
 
     public ringBuffer;
 
-public GuitarString(double frequency){
+    public GuitarString(double frequency) {
 
-}
-public GuitarString(double[] init){
+        RingBuffer thigny = new RingBuffer(frequency);
+    }
 
-}
-public void pluck(){
+    public GuitarString(double[] init) {
 
-}
-void tic(){
+    }
 
-}
-double sample(){
+    public void pluck() {
 
-}
-int time(){
+    }
 
-}
+    void tic() {
 
-    
+    }
+
+    double sample() {
+
+    }
+
+    int time() {
+
+    }
 }
