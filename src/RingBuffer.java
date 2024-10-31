@@ -41,11 +41,12 @@ public class RingBuffer {
 	}
 	
 	public void enqueue(Double dub) {
+		System.out.println(dub);
 		if (isFull()) {
 			throw new IllegalStateException();
 		}
 		if (last == -1) {
-			last = first+1;
+			last = first;
 		}
 		if (last >= buffer.length){
 			last = 0;
@@ -54,7 +55,11 @@ public class RingBuffer {
 		last++;
 		if (last >= buffer.length){
 			last = 0;
+		
 		}
+		System.out.println(first+" " +last);
+		System.out.println(Arrays.toString(buffer));
+		System.out.println(toString());
 	}
 	
 	public double dequeue() {
@@ -62,7 +67,7 @@ public class RingBuffer {
 			throw new NoSuchElementException();
 		}
 		double toReturn = buffer[first];
-		
+		first++;
 		if (first >= buffer.length){
 			first = 0;
 		}
