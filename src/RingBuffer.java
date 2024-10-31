@@ -62,7 +62,7 @@ public class RingBuffer {
 			throw new NoSuchElementException();
 		}
 		double toReturn = buffer[first];
-		first++;
+		
 		if (first >= buffer.length){
 			first = 0;
 		}
