@@ -41,7 +41,6 @@ public class RingBuffer {
 	}
 	
 	public void enqueue(Double dub) {
-		System.out.println(dub);
 		if (isFull()) {
 			throw new IllegalStateException();
 		}
@@ -57,9 +56,6 @@ public class RingBuffer {
 			last = 0;
 		
 		}
-		System.out.println(first+" " +last);
-		System.out.println(Arrays.toString(buffer));
-		System.out.println(toString());
 	}
 	
 	public double dequeue() {
@@ -72,7 +68,6 @@ public class RingBuffer {
 			first = 0;
 		}
 		if (first == last) {
-			System.out.println("aaaaaa");
 			last = -1;
 		}
 		return toReturn;
@@ -87,16 +82,9 @@ public class RingBuffer {
 	
 	public String toString() {
 		Double[] toReturn = new Double[size()];
-		int iterator = 0;
-		for ( int x = 0; x<size(); x++) {
-			int actualPos = x+first;
-			if (actualPos > buffer.length) {
-				actualPos  = actualPos - buffer.length;
-			}
-			toReturn[iterator] = buffer[x];
-			iterator++;
-		}
-		
-		return Arrays.toString(toReturn);
+        for (int i = 0; i < size(); i++) {
+            toReturn[i] = buffer[(first + i) % buffer.length];
+        }
+        return Arrays.toString(toReturn);
 	}
 }
