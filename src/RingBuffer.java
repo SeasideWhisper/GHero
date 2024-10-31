@@ -1,10 +1,4 @@
-<<<<<<< Updated upstream
 
-public class RingBuffer {
-
-    
-
-=======
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
@@ -100,5 +94,4 @@ public class RingBuffer {
 		
 		return Arrays.toString(toReturn);
 	}
->>>>>>> Stashed changes
 }
