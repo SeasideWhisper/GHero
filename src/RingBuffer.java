@@ -19,7 +19,7 @@ public class RingBuffer {
 		}
 		int toReturn = last-first;
 		if (toReturn == 0) {
-			toReturn = buffer.length-1;
+			toReturn = buffer.length;
 		} else if(toReturn < 0) {
 			toReturn = buffer.length + toReturn;
 		}
