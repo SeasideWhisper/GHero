@@ -6,7 +6,7 @@ public class GuitarString {
     private int time;
     public GuitarString(double frequency) {
     	capacity = (int) (44100 / frequency);
-        RingBuffer buffer = new RingBuffer(capacity);
+        buffer = new RingBuffer(capacity);
         for (int x = 0; x< capacity; x++) {
         	buffer.enqueue(0.0);
         }
@@ -15,7 +15,7 @@ public class GuitarString {
 
     public GuitarString(double[] init) {
     	capacity = init.length;
-        RingBuffer buffer = new RingBuffer(capacity);
+        buffer = new RingBuffer(capacity);
         for (int x = 0; x< capacity; x++) {
         	buffer.enqueue(init[x]);
         }
@@ -32,6 +32,8 @@ public class GuitarString {
     }
 
     void tic() {
+    	double daDub = 0.994 * 0.5 * (buffer.dequeue() + buffer.peek());
+    	buffer.enqueue(daDub);
     	time++;
     }
 
