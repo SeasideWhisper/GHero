@@ -1,5 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.awt.Font;
 
 /*****************************************************************************
  *  Compilation:  javac GuitarHeroLite.java
@@ -38,8 +37,10 @@ public class KeyboardHero {
     }
     
     public static void renderNote() {
-    	StdDraw.clear();
-    	 StdDraw.text(.5, .5, notes[0] + "");
+        StdDraw.setCanvasSize(2900,1370);
+ //   	StdDraw.clear();
+        StdDraw.setFont(new Font("SansSerif", 0, 500));
+    	StdDraw.text(.5, .5, notes[0] + "");
     }
     
     public static boolean checkNote(char note, GuitarString[] strings) {
