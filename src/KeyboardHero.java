@@ -23,8 +23,9 @@ public class KeyboardHero {
     	    for (int x = 0; x<37; x++) {
     	    	strings[x] = new GuitarString(getNote(x+1));
     	   }
-        
-        
+          StdDraw.setCanvasSize(500,500);
+          StdDraw.setFont(new Font("SansSerif", 0, 100));
+
         final double TEXT_POS_X = .5;
         final double TEXT_POS_Y = .5;
         renderNote();
@@ -37,9 +38,7 @@ public class KeyboardHero {
     }
     
     public static void renderNote() {
-        StdDraw.setCanvasSize(2900,1370);
- //   	StdDraw.clear();
-        StdDraw.setFont(new Font("SansSerif", 0, 500));
+        StdDraw.clear();
     	StdDraw.text(.5, .5, notes[0] + "");
     }
     
