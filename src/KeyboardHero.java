@@ -143,7 +143,15 @@ public class KeyboardHero {
 
                 // the user types this character
                 char key = StdDraw.nextKeyTyped();
+                if(key == ' ')
+                {StdDraw.setFont(new Font("SansSerif", 0, 50));
+                    for(int x = 0; x < 5000; x++){
+                        StdDraw.text(Math.random(),Math.random(), "FEIN!!");
 
+                    }
+                    StdDraw.text(.50, .15, "FEIN!!");
+
+                }
                 // pluck the corresponding string
                 checkNote(key, strings);
             }
