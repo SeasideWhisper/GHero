@@ -39,7 +39,7 @@ public class KeyboardHero {
         }
         StdDraw.setCanvasSize(2900, 1000);
         StdDraw.setFont(new Font("SansSerif", 0, 500));
-
+        
         final double TEXT_POS_X = .5;
         final double TEXT_POS_Y = .5;
         renderNote();
@@ -58,8 +58,60 @@ public class KeyboardHero {
         int num2 = (int) (Math.random()*13);
         if(num2 == num)
         {
-            num2 = (int) (Math.random()*13);
+        	while (true)
+        	{
+        		num2 = (int) (Math.random()*13);
+        		 if(num2 != num)
+        		 {
+        			 break;
+        		 }
+        	}
         }
+        int[] arr = new int[11];
+        for( int i = 0; i < 11; i++)
+        {
+        		arr[i] = (int) (Math.random()*13);
+        		if( i >= 0)
+        		{
+	        		for(int x = i; x < 11; x++)
+	        		{
+	        			if(arr[i] == arr[x])
+	        			{
+	        				arr[i] = (int) (Math.random()*13);
+	        			}
+	        			if(arr[i] == num)
+	        			{
+	        				arr[i] = (int) (Math.random()*13);
+	        			}
+	        		}
+        		}
+   
+        }
+        //StdDraw.setPenColor(bob[num2]);
+        StdDraw.setFont(new Font("SansSerif", 0, 100));
+        StdDraw.setPenColor(bob[arr[0]]);
+        StdDraw.text(.3, .85, "M");
+        StdDraw.setPenColor(bob[arr[1]]);
+        StdDraw.text(.34, .85, "E");
+        StdDraw.setPenColor(bob[arr[2]]);
+        StdDraw.text(.38, .85, "G");
+        StdDraw.setPenColor(bob[arr[3]]);
+        StdDraw.text(.42, .85, "A");
+        StdDraw.setPenColor(bob[arr[4]]);
+        StdDraw.text(.46, .85, "L");
+        StdDraw.setPenColor(bob[arr[5]]);
+        StdDraw.text(.50, .85, "O");
+        StdDraw.setPenColor(bob[arr[6]]);
+        StdDraw.text(.54, .85, "V");
+        StdDraw.setPenColor(bob[arr[7]]);
+        StdDraw.text(.58, .85, "A");
+        StdDraw.setPenColor(bob[arr[8]]);
+        StdDraw.text(.62, .85, "N");
+        StdDraw.setPenColor(bob[arr[9]]);
+        StdDraw.text(.66, .85, "I");
+        StdDraw.setPenColor(bob[arr[10]]);
+        StdDraw.text(.70, .85, "A");
+        StdDraw.setFont(new Font("SansSerif", 0, 500));
         StdDraw.setPenColor(bob[num2]);
         StdDraw.text(.5, .5, notes[0] + "");
     }
