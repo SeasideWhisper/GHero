@@ -1,5 +1,11 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /*****************************************************************************
  *  Compilation:  javac GuitarHeroLite.java
@@ -35,6 +41,9 @@ public class GuitarHero {
         play(strings);
        
     }
+    
+    
+   
     
     public static double getNote(int i) {
     	return 440* Math.pow(1.05956, i-25);
